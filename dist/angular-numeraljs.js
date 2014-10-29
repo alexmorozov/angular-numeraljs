@@ -36,7 +36,7 @@ angular.module('ngNumeraljs', [])
             };
         };
     })
-    .filter('numeraljs', function ($numeraljsConfig) {
+    .filter('numeraljs', ['$numeraljsConfig', function ($numeraljsConfig) {
         return function (input, format) {
             if (!input) {
                 return input;
@@ -46,4 +46,4 @@ angular.module('ngNumeraljs', [])
 
             return numeral(input).format(format);
         };
-    });
+    }]);
